@@ -1,6 +1,6 @@
 function getRandomName() {
-    const adjs = ["red","sweet","dorrt","lions","bark","the","princess","boris","barkfist"];
-    const nouns = ["velvet","sparkle","dorrt","blood","fist","jester","sweetsparkle","blunderbuss","barkfist"];
+    const adjs = ["red","sweet","dorrt","lions","bark","the","princess","boris","baldr"];
+    const nouns = ["velvet","sparkle","dorrt","blood","fist","jester","sweetsparkle","blunderbuss","barkfist","battlebeard"];
     return (
       adjs[Math.floor(Math.random() * adjs.length)] +
       "_" +
@@ -108,6 +108,9 @@ drone.on('open', error => {
             if (member.id != me.id) {
               notif.play()
             }
+            if (text == "!music") {
+              playPause()
+            }
         } else {
           // Message is from server
         }
@@ -132,4 +135,17 @@ function sendMessage() {
  console.log('Your ID is ' + me.id)
  console.log('Your name is ' + me.clientData.name)
  console.log('Your color is ' + me.clientData.color)
+}
+
+let playing = false;
+function playPause() {
+  if (playing) {
+    console.log("wee")
+    music.pause()
+    playing = false;
+  } else {
+    console.log("woo")
+    music.play()
+    playing = true;
+  }
 }

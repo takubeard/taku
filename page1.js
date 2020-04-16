@@ -149,3 +149,15 @@ function playPause() {
     playing = true;
   }
 }
+muted = false
+function muteUnmute() {
+  if (muted) {
+    muteButton.src ="unmuted.png";
+    music.volume = 1;
+    muted = false
+  } else {
+    muteButton.src = "muted.png";
+    music.volume = 0;
+    muted = true
+  }
+}
